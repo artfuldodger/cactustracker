@@ -1,0 +1,11 @@
+<h1>Editing measurement</h1>
+
+<%= render "form", measurement: @measurement %>
+
+<br>
+
+<div>
+  <%= link_to "Show this measurement", plant_measurement_path(@plant, @measurement) %> |
+  <%= link_to "Back to plant", plant_path(@plant) %> |
+  <%= link_to "Back to measurements", plant_measurements_path(@plant) %>
+</div>

@@ -1,0 +1,32 @@
+<%= form_with(model: [@plant, measurement]) do |form| %>
+  <% if measurement.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(measurement.errors.count, "error") %> prohibited this measurement from being saved:</h2>
+
+      <ul>
+        <% measurement.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :date, style: "display: block" %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.label :size, style: "display: block" %>
+    <%= form.number_field :size %>
+  </div>
+
+  <div>
+    <%= form.label :unit, style: "display: block" %>
+    <%= form.select :unit, ['in', 'cm'] %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

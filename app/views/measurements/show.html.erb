@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @measurement %>
+
+<div>
+  <%= link_to "Edit this measurement", edit_plant_measurement_path(@plant, @measurement) %> |
+  <%= link_to "Back to measurements", plant_measurements_path(@plant) %>
+
+  <%= button_to "Destroy this measurement", plant_measurement_path(@plant, @measurement), method: :delete %>
+</div>

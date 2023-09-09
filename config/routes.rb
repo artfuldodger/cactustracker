@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  resources :plants
+  resources :plants do
+    resources :measurements
+  end
 end
