@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+### Prerequisites
 
-* Ruby version
+```
+# For image processing (resizing uploads)
+brew install vips
 
-* System dependencies
+# Make sure postgres is up and running.. may need
+brew install postgresql@15
+```
 
-* Configuration
+### Set up
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+git clone git@github.com:artfuldodger/cactustracker.git
+cd cactustracker
+bundle
+rails db:create db:migrate db:test:prepare
+```

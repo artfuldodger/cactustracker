@@ -6,8 +6,6 @@ ruby "3.2.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.7", ">= 7.0.7.2"
 
-gem 'aws-sdk-s3', require: false
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -47,7 +45,9 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 # gem "sassc-rails"
 
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+# Image uploading support
+gem 'aws-sdk-s3', require: false
+gem 'ruby-vips'
 gem "image_processing", "~> 1.2"
 
 gem "devise"

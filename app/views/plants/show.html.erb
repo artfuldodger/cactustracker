@@ -1,6 +1,12 @@
 <h1><%= @plant.nickname %></h1>
 
 <div id="<%= dom_id @plant %>">
+  <% if @plant.images.attached? %>
+    <% @plant.images.each do |image| %>
+      <%= image_tag image.variant(:medium) %>
+    <% end %>
+  <% end %>
+
   <p>
     <strong>Variety:</strong>
     <%= @plant.variety %>

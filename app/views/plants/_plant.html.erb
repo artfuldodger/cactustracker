@@ -1,6 +1,10 @@
 <div id="<%= dom_id plant %>">
   <h2><%= link_to plant.nickname, plant_path(plant) %></h2>
 
+  <% if plant.images.attached? %>
+    <%= image_tag plant.images.first.variant(:thumb) %>
+  <% end %>
+
   <p>
     <strong>Variety:</strong>
     <%= plant.variety %>
