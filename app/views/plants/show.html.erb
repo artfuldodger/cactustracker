@@ -3,7 +3,9 @@
 <div id="<%= dom_id @plant %>">
   <% if @plant.images.attached? %>
     <% @plant.images.each do |image| %>
-      <%= image_tag image.variant(:medium) %>
+      <%= link_to image, target: '_blank' do %>
+        <%= image_tag image.variant(:medium) %>
+      <% end %>
     <% end %>
   <% end %>
 
