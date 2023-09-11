@@ -1,6 +1,6 @@
 class Plant < ApplicationRecord
   belongs_to :user
-  has_many :measurements
+  has_many :measurements, dependent: :destroy
 
   has_many_attached :images do |attachable|
     attachable.variant :thumb, resize_to_limit: [100, 100]
