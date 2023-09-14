@@ -1,0 +1,44 @@
+<h1><%= @plant.nickname %></h1>
+
+<div id="<%= dom_id @plant %>">
+  <% if @plant.images.attached? %>
+    <% @plant.images.each do |image| %>
+      <%= link_to image, target: '_blank' do %>
+        <%= image_tag image.variant(:medium) %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <p>
+    <strong>Variety:</strong>
+    <%= @plant.variety %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @plant.description %>
+  </p>
+</div>
+
+<h2>Measurements</h2>
+
+<% if @plant.measurements.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Measurement</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @plant.measurements.each do |measurement| %>
+        <tr>
+          <td><%= measurement.date %></td>
+          <td><%= measurement.size %> <%= measurement.unit %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>None recorded yet!</p>
+<% end %>

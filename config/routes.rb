@@ -6,4 +6,10 @@ Rails.application.routes.draw do
   resources :plants do
     resources :measurements
   end
+
+  resources :users, only: %i[index show] do
+    scope module: :users do
+      resources :plants, only: %i[show]
+    end
+  end
 end
