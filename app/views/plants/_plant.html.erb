@@ -1,6 +1,6 @@
 <div id="<%= dom_id plant %>" class="card m-1" style="width: 18rem">
   <% if plant.images.attached? %>
-    <%= image_tag plant.images.first.variant(:thumb) %>
+    <%= image_tag plant.images.first.variant(:medium) %>
   <% end %>
 
   <div class="card-body">
