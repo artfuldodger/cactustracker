@@ -1,23 +1,7 @@
 <h1><%= @user.name %>'s Plants</h1>
 
-<div id="plants">
+<div id="plants" class="row container">
   <% @user.plants.each do |plant| %>
-    <div id="<%= dom_id plant %>">
-      <h2><%= link_to plant.nickname, user_plant_path(@user, plant) %></h2>
-
-      <% if plant.images.attached? %>
-        <%= image_tag plant.images.first.variant(:thumb) %>
-      <% end %>
-
-      <p>
-        <strong>Variety:</strong>
-        <%= plant.variety %>
-      </p>
-
-      <p>
-        <strong>Description:</strong>
-        <%= plant.description %>
-      </p>
-    </div>
+    <%= render plant, url: user_plant_path(@user, plant) %>
   <% end %>
 </div>

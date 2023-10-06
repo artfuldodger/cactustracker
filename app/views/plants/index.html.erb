@@ -1,9 +1,9 @@
 <h1>My Plants</h1>
 
-<div id="plants">
+<%= link_to "Add a new plant", new_plant_path %>
+
+<div id="plants" class="row container">
   <% @plants.each do |plant| %>
-    <%= render plant %>
+    <%= render plant, url: plant_path(plant) %>
   <% end %>
 </div>
-
-<%= link_to "New plant", new_plant_path %>
