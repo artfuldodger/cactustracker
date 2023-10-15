@@ -93,6 +93,7 @@ GEM
       popper_js (>= 2.11.8, < 3)
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
+    chartkick (5.0.4)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -274,6 +275,7 @@ DEPENDENCIES
   aws-sdk-s3
   bootsnap
   bootstrap
+  chartkick
   debug
   devise
   factory_bot_rails

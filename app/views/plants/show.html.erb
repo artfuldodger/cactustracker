@@ -23,6 +23,7 @@
 <h2>Measurements</h2>
 
 <% if @plant.measurements.any? %>
+  <%= line_chart @plant.measurements.map { |m| [m.date, m.size] } %>
   <table>
     <thead>
       <tr>
