@@ -14,6 +14,7 @@ class PlantsController < ApplicationController
   # GET /plants/new
   def new
     @plant = Plant.new
+    @plant.images.build
   end
 
   # GET /plants/1/edit
@@ -65,6 +66,6 @@ class PlantsController < ApplicationController
   end
 
   def plant_params
-    params.require(:plant).permit(:nickname, :variety, :description, images: [])
+    params.require(:plant).permit(:nickname, :variety, :description, images_attributes: [:id, :image, :caption, :_destroy])
   end
 end

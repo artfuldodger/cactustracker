@@ -11,22 +11,36 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :nickname, style: "display: block" %>
-    <%= form.text_field :nickname %>
+  <div class="field mb-3">
+    <%= form.label :nickname, class: 'form-label' %>
+    <%= form.text_field :nickname, class: 'form-control' %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :variety, class: 'form-label' %>
+    <%= form.text_field :variety, class: 'form-control' %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :description, class: 'form-label' %>
+    <%= form.text_area :description, class: 'form-control' %>
   </div>
 
   <div>
-    <%= form.label :variety, style: "display: block" %>
-    <%= form.text_field :variety %>
+    <%= form.fields_for :images do |image_fields| %>
+      <h3>Pictures</h3>
+
+      <div class="field mb-3">
+        <%= image_tag image_fields.object.image.variant(:thumb) if image_fields.object.image.attached? %>
+        <%= image_fields.file_field :image, class: 'form-control' %>
+
+        <%= image_fields.label :caption, class: 'form-label' %>
+        <%= image_fields.text_field :caption, class: 'form-control' %>
+      </div>
+    <% end %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
