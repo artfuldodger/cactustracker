@@ -1,0 +1,27 @@
+<%= form_with(model: [@plant, image]) do |form| %>
+  <% if image.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+        <% image.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3">
+    <%= form.label :image, class: 'form-label' %>
+    <%= form.file_field :image, class: 'form-control' %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :caption, class: 'form-label' %>
+    <%= form.text_field :caption, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

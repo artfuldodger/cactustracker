@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :plants do
     resources :measurements
+    resources :images, only: %i[new create], controller: :plant_images
   end
 
   resources :users, only: %i[index show] do
