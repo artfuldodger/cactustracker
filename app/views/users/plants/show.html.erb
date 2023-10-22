@@ -1,10 +1,10 @@
 <h1><%= @plant.nickname %></h1>
 
 <div id="<%= dom_id @plant %>">
-  <% if @plant.images.attached? %>
+  <% if @plant.images.any? %>
     <% @plant.images.each do |image| %>
-      <%= link_to image, target: '_blank' do %>
-        <%= image_tag image.variant(:medium) %>
+      <%= link_to image.image, target: '_blank' do %>
+        <%= image_tag image.image.variant(:medium) %>
       <% end %>
     <% end %>
   <% end %>
