@@ -1,19 +1,21 @@
 <% if plant.images.any? %>
-  <% plant.images.each do |image| %>
-    <div class="card m-1" style="width: 22rem; overflow: hidden">
-      <%= link_to image.image, target: '_blank' do %>
-        <%= image_tag image.image.variant(:medium) %>
-      <% end %>
-      <div class="card-body">
-        <p class="card-title">
-          <b><%= image.caption %></b>
+  <div class="row">
+    <% plant.images.each do |image| %>
+      <div class="card m-1" style="width: 22rem; overflow: hidden">
+        <%= link_to image.image, target: '_blank' do %>
+          <%= image_tag image.image.variant(:medium) %>
+        <% end %>
+        <div class="card-body">
+          <p class="card-title">
+            <b><%= image.caption %></b>
 
-          <% if image.caption.present? %>
-            -
-          <% end %>
-          <i><%= I18n.l image.created_at, format: :short_date %></i>
-        </p>
+            <% if image.caption.present? %>
+              -
+            <% end %>
+            <i><%= I18n.l image.created_at, format: :short_date %></i>
+          </p>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 <% end %>
