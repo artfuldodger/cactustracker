@@ -3,15 +3,26 @@
 <div id="<%= dom_id plant %>">
   <%= render 'plants/image_cards', plant: plant %>
 
-  <p>
-    <strong>Variety:</strong>
-    <%= plant.variety %>
-  </p>
+  <% if plant.variety.present? %>
+    <p>
+      <strong>Variety:</strong>
+      <%= plant.variety %>
+    </p>
+  <% end %>
 
-  <p>
-    <strong>Description:</strong>
-    <%= plant.description %>
-  </p>
+  <% if plant.source.present? %>
+    <p>
+      <strong>Source:</strong>
+      <%= plant.source %>
+    </p>
+  <% end %>
+
+  <% if plant.description.present? %>
+    <p>
+      <strong>Description:</strong>
+      <%= plant.description %>
+    </p>
+  <% end %>
 </div>
 
 <h2>Measurements</h2>
