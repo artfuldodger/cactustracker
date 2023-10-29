@@ -6,14 +6,25 @@
   <div class="card-body">
     <h2 class="card-title"><%= link_to plant.nickname, url %></h2>
 
-    <p>
-      <strong>Variety:</strong>
-      <%= plant.variety %>
-    </p>
+    <% if plant.variety.present? %>
+      <p>
+        <strong>Variety:</strong>
+        <%= plant.variety %>
+      </p>
+    <% end %>
 
-    <p>
-      <strong>Description:</strong>
-      <%= plant.description %>
-    </p>
+    <% if plant.source.present? %>
+      <p>
+        <strong>Source:</strong>
+        <%= plant.source %>
+      </p>
+    <% end %>
+
+    <% if plant.description.present? %>
+      <p>
+        <strong>Description:</strong>
+        <%= plant.description %>
+      </p>
+    <% end %>
   </div>
 </div>
