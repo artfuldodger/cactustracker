@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :plants do
     resources :measurements
     resources :images, only: %i[new create], controller: :plant_images
+    scope module: :plants do
+      resources :comments, only: %i[create]
+    end
   end
 
   resources :users, only: %i[index show] do

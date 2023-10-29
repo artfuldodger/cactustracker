@@ -38,3 +38,24 @@
 <% else %>
   <p>None recorded yet!</p>
 <% end %>
+
+<h2>Comments</h2>
+
+<%= form_for [@plant, @comment || Comment.new] do |f| %>
+  <% if f.object.errors.any? %>
+    <%= f.object.errors.full_messages.to_sentence %>
+  <% end %>
+
+  <div class="form-floating mb-3">
+    <%= f.text_area :text, class: 'form-control', placeholder: 'New comment' %>
+    <%= f.label :text, 'New comment' %>
+  </div>
+
+  <%= f.submit 'Post', class: 'btn btn-secondary' %>
+<% end %>
+
+<% if plant.comments.any? %>
+  <%= render 'comments/comments', comments: plant.comments %>
+<% else %>
+  <p>No comments yet.
+<% end %>

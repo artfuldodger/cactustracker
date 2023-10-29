@@ -1,0 +1,9 @@
+<% comments.order(created_at: :desc).includes(:user).each do |comment| %>
+  <div>
+    <%= comment.text %>
+    -
+    <%= comment.user.name %>
+    on
+    <%= l comment.created_at, format: :short_date %>
+  </div>
+<% end %>
