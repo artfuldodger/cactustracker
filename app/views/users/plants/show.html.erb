@@ -1,1 +1,3 @@
+<%= link_to "Back to #{@plant.user.name}", user_path(@plant.user) %>
+
 <%= render '/plants/show', plant: @plant %>
