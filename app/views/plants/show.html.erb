@@ -1,42 +1,4 @@
-<h1><%= @plant.nickname %></h1>
-
-<div id="<%= dom_id @plant %>">
-  <%= render 'plants/image_cards', plant: @plant %>
-
-  <p>
-    <strong>Variety:</strong>
-    <%= @plant.variety %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @plant.description %>
-  </p>
-</div>
-
-<h2>Measurements</h2>
-
-<% if @plant.measurements.any? %>
-  <%= line_chart @plant.measurements.map { |m| [m.date, m.size] } %>
-  <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Measurement</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @plant.measurements.each do |measurement| %>
-        <tr>
-          <td><%= measurement.date %></td>
-          <td><%= measurement.size %> <%= measurement.unit %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <p>None recorded yet!</p>
-<% end %>
+<%= render 'show', plant: @plant %>
 
 <%= link_to 'New Measurement', new_plant_measurement_path(@plant) %> |
 <%= link_to 'New Image', new_plant_image_path(@plant) %>
