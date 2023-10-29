@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   resources :plants do
     resources :measurements
-    resources :images, only: %i[new create], controller: :plant_images
     scope module: :plants do
+      resources :images, only: %i[new create]
       resources :comments, only: %i[create]
     end
   end
