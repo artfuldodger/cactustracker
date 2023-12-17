@@ -1,7 +1,11 @@
 <h1><%= @user.name %>'s Plants</h1>
 
 <div id="plants" class="row container">
-  <% @user.plants.each do |plant| %>
-    <%= render plant, url: user_plant_path(@user, plant) %>
+  <% if @user.plants.any? %>
+    <% @user.plants.each do |plant| %>
+      <%= render plant, url: user_plant_path(@user, plant) %>
+    <% end %>
+  <% else %>
+    <p>No plants yet!</p>
   <% end %>
 </div>
