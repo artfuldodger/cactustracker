@@ -10,5 +10,10 @@
   <%= link_to "Back to plants", plants_path %>
 
   <br><br><br>
-  <%= button_to "Delete this plant", @plant, method: :delete, data: { 'turbo-confirm': 'Are you sure? This cannot be undone.' } %>
+
+  <%= button_to "Delete this plant",
+      @plant,
+      method: :delete,
+      data: { 'turbo-confirm': 'Are you sure? This cannot be undone.' },
+      class: 'btn btn-danger' %>
 </div>
