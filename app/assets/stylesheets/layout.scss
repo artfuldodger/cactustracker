@@ -4,3 +4,19 @@
   border-top: 1px solid black;
   padding-top: 10px;
 }
+
+.header-with-button {
+  @extend .row;
+
+  span {
+    @extend .col-10;
+  }
+
+  .btn-container {
+    @extend .col-2;
+  }
+}
+
+.form-cancel {
+  margin-left: 2em;
+}

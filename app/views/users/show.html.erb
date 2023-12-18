@@ -1,4 +1,12 @@
-<h1><%= @user.name %>'s Plants</h1>
+<h1 class="header-with-button">
+  <span><%= @user.name %>'s Plants</span>
+
+  <% if current_user == @user %>
+    <span class="btn-container" %>
+      <%= link_to 'Edit your profile', edit_user_registration_path, class: 'btn btn-secondary' %>
+    </span>
+  <% end %>
+</h1>
 
 <div id="plants" class="row container">
   <% if @user.plants.any? %>
