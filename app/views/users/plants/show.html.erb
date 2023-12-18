@@ -1,3 +1,5 @@
+<% editable = Policies::PlantEditing.new(current_user, @plant).allowed? %>
+
 <%= link_to "Back to #{@plant.user.name}", user_path(@plant.user) %>
 
 <h1><%= @plant.nickname %></h1>
@@ -37,6 +39,9 @@
       <tr>
         <th>Date</th>
         <th>Measurement</th>
+        <% if editable %>
+          <th></th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -44,6 +49,12 @@
         <tr>
           <td><%= measurement.date %></td>
           <td><%= measurement.size %> <%= measurement.unit %></td>
+          <% if editable %>
+            <td>
+              <%= link_to 'Edit', edit_plant_measurement_path(@plant, measurement) %>
+              <%= link_to 'Delete', plant_measurement_path(@plant, measurement), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure you want to delete this measurement?', turbo_confirm: 'Are you sure you want to delete this measurement?' } %>
+            </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
@@ -73,7 +84,7 @@
   <p>No comments yet.
 <% end %>
 
-<% if Policies::PlantEditing.new(current_user, @plant).allowed? %>
+<% if editable %>
   <hr>
 
   <%= link_to 'New Measurement', new_plant_measurement_path(@plant) %> |
