@@ -26,7 +26,7 @@ class MeasurementsController < ApplicationController
 
     respond_to do |format|
       if @measurement.save
-        format.html { redirect_to plant_url(@plant), notice: "Measurement was successfully created." }
+        format.html { redirect_to user_plant_url(@plant.user, @plant), notice: "Measurement was successfully created." }
         format.json { render :show, status: :created, location: @measurement }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class MeasurementsController < ApplicationController
   def update
     respond_to do |format|
       if @measurement.update(measurement_params)
-        format.html { redirect_to plant_url(@plant), notice: "Measurement was successfully updated." }
+        format.html { redirect_to user_plant_url(@plant.user, @plant), notice: "Measurement was successfully updated." }
         format.json { render :show, status: :ok, location: @measurement }
       else
         format.html { render :edit, status: :unprocessable_entity }
