@@ -2,6 +2,10 @@
 
 <ul>
   <% @users.each do |user| %>
-    <li><%= link_to user.name, user_path(user) %></li>
+    <li>
+      <%= link_to user.name, user_path(user) %>
+      <% plant_count = user.plants.count # TODO: Fix n+1 %>
+      (<%= plant_count.to_s + ' plant'.pluralize(plant_count) %>)
+    </li>
   <% end %>
 </ul>
