@@ -2,15 +2,6 @@ class PlantsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_plant, only: %i[ show edit update destroy ]
 
-  # GET /plants or /plants.json
-  def index
-    @plants = current_user.plants
-  end
-
-  # GET /plants/1 or /plants/1.json
-  def show
-  end
-
   # GET /plants/new
   def new
     @plant = Plant.new
@@ -27,7 +18,7 @@ class PlantsController < ApplicationController
 
     respond_to do |format|
       if @plant.save
-        format.html { redirect_to plant_url(@plant), notice: "Plant was successfully created." }
+        format.html { redirect_to user_plant_url(current_user, @plant), notice: "Plant was successfully created." }
         format.json { render :show, status: :created, location: @plant }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +31,7 @@ class PlantsController < ApplicationController
   def update
     respond_to do |format|
       if @plant.update(plant_params)
-        format.html { redirect_to plant_url(@plant), notice: "Plant was successfully updated." }
+        format.html { redirect_to user_plant_url(current_user, @plant), notice: "Plant was successfully updated." }
         format.json { render :show, status: :ok, location: @plant }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +45,7 @@ class PlantsController < ApplicationController
     @plant.destroy
 
     respond_to do |format|
-      format.html { redirect_to plants_url, notice: "Plant was successfully destroyed." }
+      format.html { redirect_to user_plants_url(current_user), notice: "Plant was successfully destroyed." }
       format.json { head :no_content }
     end
   end
