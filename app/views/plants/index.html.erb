@@ -1,6 +1,10 @@
-<h1>My Plants</h1>
+<h1 class="header-with-button">
+  <span>My Plants</span>
 
-<%= link_to "Add a new plant", new_plant_path %>
+  <span class="btn-container" %>
+    <%= link_to "Add a new plant", new_plant_path, class: 'btn btn-primary' %>
+  </span>
+</h1>
 
 <div id="plants" class="row container">
   <% @plants.each do |plant| %>

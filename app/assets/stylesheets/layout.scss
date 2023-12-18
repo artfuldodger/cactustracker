@@ -11,11 +11,11 @@
   @extend .row;
 
   span {
-    @extend .col-10;
+    @extend .col-9;
   }
 
   .btn-container {
-    @extend .col-2;
+    @extend .col-3;
   }
 }
 
