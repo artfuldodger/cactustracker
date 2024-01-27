@@ -37,7 +37,7 @@
 
       <div class="field mb-3">
         <%= image_tag image_fields.object.image.variant(:thumb) if image_fields.object.image.attached? %>
-        <%= image_fields.file_field :image, class: 'form-control' %>
+        <%= image_fields.file_field :image, class: 'form-control', accept: 'image/*' %>
 
         <%= image_fields.label :caption, class: 'form-label' %>
         <%= image_fields.text_field :caption, class: 'form-control' %>
