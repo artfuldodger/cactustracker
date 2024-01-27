@@ -10,7 +10,7 @@ class Plants::ImagesController < ApplicationController
     @image = @plant.images.new(image_params)
 
     if @image.save
-      redirect_to plant_url(@plant), notice: 'Picture added!'
+      redirect_to user_plant_url(@plant.user, @plant), notice: 'Picture added!'
     else
       render :new
     end
