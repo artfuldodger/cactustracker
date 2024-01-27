@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :plants do
     resources :measurements
     scope module: :plants do
-      resources :images, only: %i[new create]
+      resources :images, only: %i[new create destroy]
       resources :comments, only: %i[create]
     end
   end

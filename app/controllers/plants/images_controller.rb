@@ -16,6 +16,11 @@ class Plants::ImagesController < ApplicationController
     end
   end
 
+  def destroy
+    @plant.images.destroy(params[:id])
+    redirect_to user_plant_url(@plant.user, @plant), notice: 'Picture deleted.'
+  end
+
   private
 
   def set_plant
