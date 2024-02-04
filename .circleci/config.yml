@@ -11,6 +11,8 @@ jobs:
     docker:
       - image: cimg/ruby:3.2.3-browsers
       - image: cimg/postgres:16.1
+        environment:
+          POSTGRES_DB: cactus_tracker_test
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
