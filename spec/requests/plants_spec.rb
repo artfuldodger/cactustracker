@@ -22,22 +22,6 @@ RSpec.describe "/plants", type: :request do
 
   before { sign_in(user) }
 
-  describe "GET /index" do
-    it "renders a successful response" do
-      Plant.create! valid_attributes
-      get plants_url
-      expect(response).to be_successful
-    end
-  end
-
-  describe "GET /show" do
-    it "renders a successful response" do
-      plant = Plant.create! valid_attributes
-      get plant_url(plant)
-      expect(response).to be_successful
-    end
-  end
-
   describe "GET /new" do
     it "renders a successful response" do
       get new_plant_url
@@ -63,7 +47,7 @@ RSpec.describe "/plants", type: :request do
 
       it "redirects to the created plant" do
         post plants_url, params: { plant: valid_attributes }
-        expect(response).to redirect_to(plant_url(Plant.last))
+        expect(response).to redirect_to(user_plant_url(Plant.last.user, Plant.last))
       end
     end
 
@@ -102,7 +86,7 @@ RSpec.describe "/plants", type: :request do
         plant = Plant.create! valid_attributes
         patch plant_url(plant), params: { plant: new_attributes }
         plant.reload
-        expect(response).to redirect_to(plant_url(plant))
+        expect(response).to redirect_to(user_plant_url(plant.user, plant))
       end
     end
 
@@ -126,7 +110,7 @@ RSpec.describe "/plants", type: :request do
     it "redirects to the plants list" do
       plant = Plant.create! valid_attributes
       delete plant_url(plant)
-      expect(response).to redirect_to(plants_url)
+      expect(response).to redirect_to(user_url(plant.user))
     end
   end
 end

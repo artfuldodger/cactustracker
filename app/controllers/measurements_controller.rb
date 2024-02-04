@@ -53,7 +53,7 @@ class MeasurementsController < ApplicationController
     @measurement.destroy
 
     respond_to do |format|
-      format.html { redirect_to plant_url(@plant), notice: "Measurement was successfully destroyed." }
+      format.html { redirect_to user_plant_url(@plant.user, @plant), notice: "Measurement was successfully destroyed." }
       format.json { head :no_content }
     end
   end

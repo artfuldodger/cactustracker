@@ -45,7 +45,7 @@ class PlantsController < ApplicationController
     @plant.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_plants_url(current_user), notice: "Plant was successfully destroyed." }
+      format.html { redirect_to user_url(current_user), notice: "Plant was successfully destroyed." }
       format.json { head :no_content }
     end
   end
