@@ -10,9 +10,15 @@ jobs:
     # See: https://circleci.com/docs/configuration-reference/#executor-job
     docker:
       - image: cimg/ruby:3.2.3-browsers
+        environment:
+          PG_HOST: localhost
+          PG_USER: ubuntu
+          RAILS_ENV: test
+          RACK_ENV: test
       - image: cimg/postgres:16.1
         environment:
           POSTGRES_DB: cactus_tracker_test
+          POSTGRES_USER: ubuntu
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
