@@ -20,6 +20,9 @@ jobs:
             - bundler-cache-v4-{{ checksum "Gemfile.lock" }}
             - bundler-cache-v4-
       - run:
+          name: Install libvips
+          command: sudo apt-get install -y libvips
+      - run:
           name: bundle install
           command: bundle check || bundle install --without=development
       - save_cache:
