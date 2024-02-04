@@ -15,6 +15,7 @@ jobs:
           PG_USER: circleci
           RAILS_ENV: test
           RACK_ENV: test
+          CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
       - image: cimg/postgres:16.1
         environment:
           POSTGRES_DB: cactus_tracker_test
