@@ -30,9 +30,9 @@ jobs:
       # - run:
       #     name: rubocop
       #     command: if [[ "$CIRCLE_NODE_INDEX" == "0" ]] ; then bundle exec rubocop ; fi
-      # - run:
-      #     name: Wait for DB
-      #     command: dockerize -wait tcp://localhost:3306 -timeout 1m
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: db setup
           command: bundle exec rake db:create db:schema:load --trace
