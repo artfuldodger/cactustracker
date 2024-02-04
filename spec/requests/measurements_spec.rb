@@ -65,7 +65,7 @@ RSpec.describe "/measurements", type: :request do
 
       it "redirects to the created measurement" do
         post plant_measurements_url(plant), params: {measurement: valid_attributes }
-        expect(response).to redirect_to(plant_url(plant))
+        expect(response).to redirect_to(user_plant_url(plant.user, plant))
       end
     end
 
@@ -104,7 +104,7 @@ RSpec.describe "/measurements", type: :request do
         measurement = Measurement.create! valid_attributes
         patch plant_measurement_url(plant, measurement), params: { measurement: new_attributes }
         measurement.reload
-        expect(response).to redirect_to(plant_url(plant))
+        expect(response).to redirect_to(user_plant_url(plant.user, plant))
       end
     end
 
@@ -129,7 +129,7 @@ RSpec.describe "/measurements", type: :request do
     it "redirects to the plant" do
       measurement = Measurement.create! valid_attributes
       delete plant_measurement_url(plant, measurement)
-      expect(response).to redirect_to(plant_url(plant))
+      expect(response).to redirect_to(user_plant_url(plant.user, plant))
     end
   end
 end
