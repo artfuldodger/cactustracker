@@ -23,5 +23,6 @@ RSpec.describe 'signing up and signing in', type: :system do
     click_button 'Log in'
 
     expect(page).to have_content 'Signed in successfully.'
+    expect(page).to have_content "Maggie's Plants"
   end
 end
