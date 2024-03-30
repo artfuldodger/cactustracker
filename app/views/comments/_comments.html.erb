@@ -1,9 +1,13 @@
-<% comments.order(created_at: :desc).includes(:user).each do |comment| %>
-  <div>
-    <%= comment.text %>
-    -
-    <%= comment.user.name %>
-    on
-    <%= l comment.created_at, format: :short_date %>
-  </div>
-<% end %>
+<div class="comments">
+  <% comments.order(created_at: :desc).includes(:user).each do |comment| %>
+    <div class="comment">
+      <span class="content"><%= comment.text %></span>
+      <span class="attribution">
+        from
+        <%= link_to comment.user.name, comment.user %>
+        on
+        <%= l comment.created_at, format: :short_date %>
+      </span>
+    </div>
+  <% end %>
+</div>

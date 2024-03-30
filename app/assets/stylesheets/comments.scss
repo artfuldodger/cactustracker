@@ -1,0 +1,22 @@
+.comments {
+  .comment {
+    padding: 5px 0;
+
+    .content {
+      &:before {
+        content: "“"
+      }
+      &:after {
+        content: "”"
+      }
+    }
+
+    .attribution {
+      font-size: 0.8em;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

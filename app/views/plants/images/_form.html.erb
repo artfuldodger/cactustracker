@@ -1,6 +1,6 @@
 <%= form_with(model: [@plant, image]) do |form| %>
   <% if image.errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger" role="alert">
       <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
 
       <ul>
