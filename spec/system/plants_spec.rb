@@ -22,7 +22,7 @@ RSpec.describe 'plant crud', type: :system do
     expect(page).to have_content 'Plant was successfully created.'
     expect(page).to have_content 'Joe'
 
-    click_on 'Edit this plant'
+    click_on 'Edit Details'
     fill_in 'Nickname', with: 'Joe!'
     click_on 'Update Plant'
 

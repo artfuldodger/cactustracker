@@ -5,7 +5,19 @@
 <h1><%= @plant.nickname %></h1>
 
 <div id="<%= dom_id @plant %>">
+  <h2>
+    Pictures
+    <% if editable %><%= link_to 'Upload New Picture', new_plant_image_path(@plant), class: 'btn btn-secondary' %><% end %>
+  </h2>
+
   <%= render 'plants/image_cards', plant: @plant %>
+
+  <h2>
+    Details
+    <% if editable %>
+      <%= link_to 'Edit Details', edit_plant_path(@plant), class: 'btn btn-secondary' %>
+    <% end %>
+  </h2>
 
   <% if @plant.variety.present? %>
     <p>
@@ -29,7 +41,13 @@
   <% end %>
 </div>
 
-<h2>Measurements</h2>
+<h2>
+  Measurements
+
+  <% if editable %>
+    <%= link_to 'New Measurement', new_plant_measurement_path(@plant), class: 'btn btn-secondary' %>
+  <% end %>
+</h2>
 
 <% if @plant.measurements.any? %>
   <%= line_chart @plant.measurements.map { |m| [m.date, m.size] } %>
@@ -85,20 +103,11 @@
 <% end %>
 
 <% if editable %>
-  <hr>
+  <br><br><br>
 
-  <%= link_to 'New Measurement', new_plant_measurement_path(@plant) %> |
-  <%= link_to 'New Image', new_plant_image_path(@plant) %>
-
-  <div>
-    <%= link_to "Edit this plant", edit_plant_path(@plant) %>
-
-    <br><br><br>
-
-    <%= button_to "Delete this plant",
-        @plant,
-        method: :delete,
-        data: { 'turbo-confirm': 'Are you sure? This cannot be undone.' },
-        class: 'btn btn-danger' %>
-  </div>
+  <%= button_to "Delete this plant",
+      @plant,
+      method: :delete,
+      data: { 'turbo-confirm': 'Are you sure? This cannot be undone.' },
+      class: 'btn btn-danger' %>
 <% end %>
