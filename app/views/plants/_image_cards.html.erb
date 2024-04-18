@@ -1,7 +1,7 @@
 <% if plant.images.any? %>
   <div class="row">
     <% plant.images.each do |image| %>
-      <div class="card m-1" style="width: 22rem; overflow: hidden">
+      <div class="card m-1 plant-card">
         <%= link_to image.image, target: '_blank' do %>
           <%= image_tag image.image.variant(:medium) %>
         <% end %>

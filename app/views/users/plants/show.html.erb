@@ -1,23 +1,32 @@
 <% editable = Policies::PlantEditing.new(current_user, @plant).allowed? %>
 
-<%= link_to "Back to #{@plant.user.name}", user_path(@plant.user) %>
+<% unless @plant.user == current_user %>
+  <%= link_to "Back to #{@plant.user.name}", user_path(@plant.user) %>
+<% end %>
 
 <h1><%= @plant.nickname %></h1>
-
+<hr>
 <div id="<%= dom_id @plant %>">
-  <h2>
+  <h3>
     Pictures
-    <% if editable %><%= link_to 'Upload New Picture', new_plant_image_path(@plant), class: 'btn btn-secondary' %><% end %>
-  </h2>
+    <span class="header-button">
+      <% if editable %><%= link_to 'Upload New Picture', new_plant_image_path(@plant), class: 'btn btn-secondary' %><% end %>
+    </span>
+  </h3>
+  <br>
 
   <%= render 'plants/image_cards', plant: @plant %>
 
-  <h2>
+  <hr>
+
+  <h3>
     Details
     <% if editable %>
-      <%= link_to 'Edit Details', edit_plant_path(@plant), class: 'btn btn-secondary' %>
+      <span class="header-button">
+        <%= link_to 'Edit Details', edit_plant_path(@plant), class: 'btn btn-secondary' %>
+      </span>
     <% end %>
-  </h2>
+  </h3>
 
   <% if @plant.variety.present? %>
     <p>
@@ -41,13 +50,17 @@
   <% end %>
 </div>
 
-<h2>
+<hr>
+
+<h3>
   Measurements
 
   <% if editable %>
-    <%= link_to 'New Measurement', new_plant_measurement_path(@plant), class: 'btn btn-secondary' %>
+    <span class="header-button">
+      <%= link_to 'New Measurement', new_plant_measurement_path(@plant), class: 'btn btn-secondary' %>
+    </span>
   <% end %>
-</h2>
+</h3>
 
 <% if @plant.measurements.any? %>
   <%= line_chart @plant.measurements.map { |m| [m.date, m.size] } %>
@@ -81,7 +94,9 @@
   <p>None recorded yet!</p>
 <% end %>
 
-<h2>Comments</h2>
+<hr>
+
+<h3>Comments</h2>
 
 <%= form_for [@plant, @comment || Comment.new] do |f| %>
   <% if f.object.errors.any? %>
