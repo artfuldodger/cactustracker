@@ -3,8 +3,19 @@
   overflow: hidden;
   padding: 0px;
   margin: 10px !important;
+
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
-span.header-button {
-  float: right;
+.profile-card {
+  max-width: 18rem;
+  padding: 0px;
+
+  img {
+    border-radius: inherit;
+  }
 }
