@@ -1,5 +1,23 @@
 @import "bootstrap";
 
+.nav {
+  padding: 10px 30px;
+  background-color: #32a852;
+  color: #ffffff;
+
+  a {
+    color: #ffffff;
+    text-decoration: underline;
+    &:hover {
+      color: #0c451c;
+    }
+  }
+}
+
+.padded-content {
+  padding: 20px 50px;
+}
+
 .footer {
   margin-top: 30px;
   margin-bottom: 10px;
