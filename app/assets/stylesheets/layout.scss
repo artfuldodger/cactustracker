@@ -4,6 +4,7 @@ $green: #32a852;
 $green-dark: darken($green, 20);
 $white: #ffffff;
 $off-white: darken($white, 10);
+$mobile-width: 576px;
 
 .nav {
   padding: 10px 30px;
@@ -21,7 +22,11 @@ $off-white: darken($white, 10);
 }
 
 .padded-content {
-  padding: 20px 50px;
+  padding: 20px 4rem;
+
+  @media (max-width: $mobile-width) {
+    padding: 20px 3rem;
+  }
 }
 
 .footer {

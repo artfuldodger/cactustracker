@@ -9,6 +9,10 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
+  @media (max-width: $mobile-width) {
+    margin: 10px 0px !important;
+  }
 }
 
 .profile-card {
