@@ -1,10 +1,27 @@
+@import "variables";
+
 .plant-card {
-  max-width: 22rem; 
+  max-width: 22rem;
   overflow: hidden;
   padding: 0px;
   margin: 10px !important;
+
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin: 10px 0px !important;
+  }
 }
 
-span.header-button {
-  float: right;
+.profile-card {
+  max-width: 18rem;
+  padding: 0px;
+
+  img {
+    border-radius: inherit;
+  }
 }

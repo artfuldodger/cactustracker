@@ -7,11 +7,9 @@
 <h1><%= @plant.nickname %></h1>
 <hr>
 <div id="<%= dom_id @plant %>">
-  <h3>
+  <h3 class="header-with-button">
     Pictures
-    <span class="header-button">
-      <% if editable %><%= link_to 'Upload New Picture', new_plant_image_path(@plant), class: 'btn btn-secondary' %><% end %>
-    </span>
+    <% if editable %><%= link_to 'Upload New Picture', new_plant_image_path(@plant), class: 'btn btn-secondary' %><% end %>
   </h3>
   <br>
 
@@ -19,12 +17,10 @@
 
   <hr>
 
-  <h3>
+  <h3 class="header-with-button">
     Details
     <% if editable %>
-      <span class="header-button">
-        <%= link_to 'Edit Details', edit_plant_path(@plant), class: 'btn btn-secondary' %>
-      </span>
+      <%= link_to 'Edit Details', edit_plant_path(@plant), class: 'btn btn-secondary' %>
     <% end %>
   </h3>
 
@@ -52,13 +48,11 @@
 
 <hr>
 
-<h3>
+<h3 class="header-with-button">
   Measurements
 
   <% if editable %>
-    <span class="header-button">
-      <%= link_to 'New Measurement', new_plant_measurement_path(@plant), class: 'btn btn-secondary' %>
-    </span>
+    <%= link_to 'New Measurement', new_plant_measurement_path(@plant), class: 'btn btn-secondary' %>
   <% end %>
 </h3>
 
