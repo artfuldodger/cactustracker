@@ -106,7 +106,7 @@
 <% end %>
 
 <% if @plant.comments.any? %>
-  <%= render 'comments/comments', comments: @plant.comments %>
+  <%= render 'comments/comments', comments: @comments %>
 <% else %>
   <p>No comments yet.
 <% end %>

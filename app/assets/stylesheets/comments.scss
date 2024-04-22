@@ -1,6 +1,14 @@
 .comments {
   .comment {
-    padding: 5px 0;
+    padding: 0px;
+    width: 18rem;
+    margin: 10px;
+
+    .card-body {
+      max-height: 15rem;
+      overflow: scroll;
+      min-height: 10rem;
+    }
 
     .content {
       &:before {
@@ -13,10 +21,6 @@
 
     .attribution {
       font-size: 0.8em;
-    }
-
-    &:last-child {
-      border-bottom: none;
     }
   }
 }

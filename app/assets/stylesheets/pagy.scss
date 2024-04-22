@@ -1,0 +1,45 @@
+.pagy {
+  display: flex;
+  text-align: center;
+  background-color: $white;
+
+  a {
+    text-decoration: none;
+    background-color: $white;
+    padding: 0.25rem 0.75rem;
+    color: $green;
+    border: 1px solid $green;
+
+    &:first-child {
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+    &:last-child {
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+
+    &:hover {
+      background-color: $off-white;
+      color: $green;
+    }
+
+    &:not([href]) { /* disabled links */
+      cursor: default;
+      color: $off-white;
+      &:hover {
+        background-color: $white;
+        color: $off-white
+      }
+    }
+
+    &.current {
+      background-color: $green;
+      color: $white;
+      font-weight: 700;
+
+      &:hover {
+        background-color: $green;
+        color: $white;
+      }
+    }
+  }
+}

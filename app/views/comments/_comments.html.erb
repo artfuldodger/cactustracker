@@ -1,13 +1,16 @@
-<div class="comments">
+<div class="comments row">
   <% comments.order(created_at: :desc).includes(:user).each do |comment| %>
-    <div class="comment">
-      <span class="content"><%= comment.text %></span>
-      <span class="attribution">
+    <div class="comment card">
+      <div class="card-body">
+        <span class="content"><%= comment.text %></span>
+      </div>
+      <div class="attribution card-footer text-muted">
         from
         <%= link_to comment.user.name, comment.user %>
         on
         <%= l comment.created_at, format: :short_date %>
-      </span>
+      </div>
     </div>
   <% end %>
+  <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
 </div>
