@@ -1,5 +1,9 @@
 <p>Welcome <%= @email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>We're super excited to have you track your cactus with us!<p>
+
+<p>With Cactus Tracker, you can share pictures of your cactus, keep track of their growth, and more!</p>
+
+<p>Super quick, we just need you to click the link below to confirm your email address so we can keep out spammers and robots.<p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
