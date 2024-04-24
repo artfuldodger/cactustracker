@@ -90,7 +90,7 @@
 
 <hr>
 
-<h3>Comments</h2>
+<h3 id="comments">Comments</h2>
 
 <%= form_for [@plant, @comment || Comment.new] do |f| %>
   <% if f.object.errors.any? %>
@@ -105,8 +105,10 @@
   <%= f.submit 'Post', class: 'btn btn-secondary' %>
 <% end %>
 
+<br>
+
 <% if @plant.comments.any? %>
-  <%= render 'comments/comments', comments: @plant.comments %>
+  <%= render 'comments/comments', comments: @comments %>
 <% else %>
   <p>No comments yet.
 <% end %>
