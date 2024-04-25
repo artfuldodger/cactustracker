@@ -3,28 +3,28 @@
     <%= image_tag plant.images.last.image.variant(:medium) %>
   <% end %>
 
-  <div class="card-body">
-    <h2 class="card-title"><%= link_to plant.nickname, url %></h2>
+  <h4 class="card-header"><%= link_to plant.nickname, url %></h4>
 
-    <% if plant.variety.present? %>
-      <p>
-        <strong>Variety:</strong>
-        <%= plant.variety %>
-      </p>
-    <% end %>
 
-    <% if plant.source.present? %>
-      <p>
-        <strong>Source:</strong>
-        <%= plant.source %>
-      </p>
-    <% end %>
 
-    <% if plant.description.present? %>
-      <p>
-        <strong>Description:</strong>
-        <%= plant.description %>
-      </p>
-    <% end %>
-  </div>
+    <ul class="list-group list-group-flush">
+      <% if plant.variety.present? %>
+        <li class="list-group-item">
+            <strong>Variety:</strong>
+            <%= plant.variety %>
+        </li>
+      <% end %>
+      <% if plant.source.present? %>
+        <li class="list-group-item">
+            <strong>Source:</strong>
+            <%= plant.source %>
+        </li>
+      <% end %>
+      <% if plant.description.present? %>
+        <li class="list-group-item">
+          <strong>Description:</strong>
+          <%= plant.description %>
+        </li>
+      <% end %>
+
 </div>

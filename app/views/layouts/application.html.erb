@@ -40,7 +40,6 @@
     <div id="main" class="container-fluid padded-content">
       <% if flash[:notice] %><p class="alert alert-primary" role="alert"><%= notice %></p><% end %>
       <% if flash[:alert] %><p class="alert alert-danger" role="alert"><%= alert %></p><% end %>
-
       <%= yield %>
     </div>
     <div class="footer container-fluid">
