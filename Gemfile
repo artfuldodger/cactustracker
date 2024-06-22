@@ -55,6 +55,9 @@ gem "chartkick"
 
 gem 'pagy', '~> 8.2'
 
+# Can be removed once we get on Ruby 3.3.4 - https://github.com/ruby/ruby/pull/11006#issuecomment-2176562332
+gem "net-pop", github: "ruby/net-pop"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
