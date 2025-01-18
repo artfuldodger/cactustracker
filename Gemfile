@@ -50,7 +50,7 @@ gem 'aws-sdk-s3', require: false
 gem 'ruby-vips'
 gem "image_processing", "~> 1.2"
 
-gem "devise"
+gem "devise", github: "heartcombo/devise"
 gem "chartkick"
 
 gem 'pagy', '~> 8.2'
